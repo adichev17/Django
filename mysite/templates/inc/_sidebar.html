@@ -1,0 +1,12 @@
+{% load news_tags %}
+{% comment %} # 1 способ вывода категорий
+<div class="list-group">
+    {% get_list_categories as categories %} <!-- as - тег передаёт в перменную данные. -->
+    {% for item in categories %}
+    <a href="{% url 'category' item.pk %}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+    {% endfor %}
+</div>
+{% endcomment %}
+
+<!-- второй способ -->
+{% show_categories %}
